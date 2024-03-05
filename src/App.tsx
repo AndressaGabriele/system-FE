@@ -32,15 +32,23 @@ function App() {
 
   async function handleDeleteCustomer(id: string) {
     try {
-      await api.delete(`/customer/${id}`);
-      setCustomers(customers.filter((customer) => customer.id !== id));
+      await api.delete("/customer", {
+        params: {
+          id: id,
+        }
+      })
+
+      const allCustomers = customers.filter((customer) => customer.id !== id)
+      setCustomers(allCustomers)
       setDeleteStatus("Cliente deletado com sucesso!");
+
       setTimeout(() => {
         setDeleteStatus(null);
-      }, 3000);
-    } catch (error) {
-      console.error("Error deleting customer:", error);
-      setDeleteStatus("Erro ao deletar cliente.");
+      }, 3000)
+
+    } catch (err) {
+      console.log(err)
+      setDeleteStatus("Erro ao deletar cliente.")
     }
   }
 
