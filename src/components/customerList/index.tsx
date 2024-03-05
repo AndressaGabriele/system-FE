@@ -1,6 +1,4 @@
 // components/CustomerList.tsx
-
-import React from "react";
 import { FiTrash } from "react-icons/fi";
 
 interface CustomerListProps {

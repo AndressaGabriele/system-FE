@@ -1,6 +1,6 @@
 // App.tsx
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CustomerForm from "./components/customerForm";
 import CustomerList from "./components/customerList";
 import { api } from "./services/api";
